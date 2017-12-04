@@ -1,0 +1,324 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "iShop API",
+        "contact": {
+            "name": "Pek Ratanak",
+            "url": "https://www.google.com"
+        },
+        "version": "1.0"
+    },
+    "basePath": "",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/api/All-Users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "get all users",
+                "operationId": "GET_ALL_USERS",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/Delete-Users/{id}": {
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Remove User entry",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "get login view for user",
+                "operationId": "GET_LoginView_USERS",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "post login form ",
+                "operationId": "POST_LOGINForm_USERS",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User_Login"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/auth/register": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "get register view for user",
+                "operationId": "GET_RegisterView_USERS",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "post register form ",
+                "operationId": "POST_RegisterForm_USERS",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User_Regiester"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/Update": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "description": "get updated items",
+                "operationId": "GET_ALL_Updated_ITEMS",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/All-Items": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "description": "get all items",
+                "operationId": "GET_ALL_ITEMS",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/Delete-item/{id}": {
+            "delete": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Remove Item entry",
+                "operationId": "deleteItem",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Item ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "User token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "error"
+                    }
+                }
+            }
+        },
+        "/api/update-item/{id}": {
+            "put": {
+                "tags": [
+                    "Items"
+                ],
+                "description": "put request for update item name ",
+                "operationId": "PUT_UPDATE_ITEM_NAME",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "UUID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESSFULLY DONE"
+                    },
+                    "401": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "description": "Class Controller",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "description": "Class Controller",
+                    "type": "string"
+                }
+            }
+        },
+        "User_Regiester": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "Ahmed@yahoo.com"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Ahmed"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "11111"
+                }
+            }
+        },
+        "User_Login": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "Ahmed@yahoo.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "11111"
+                }
+            }
+        },
+        "Item": {
+            "properties": {
+                "itemname": {
+                    "type": "string",
+                    "example": "New Item"
+                }
+            }
+        }
+    }
+}
